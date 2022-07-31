@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>                
+        <script src="" async defer></script>
+        <div class="wrapper">
+            <h1>Finance Logger</h1>
+            <ul class="item-list">
+
+            </ul>
+        </div>
+        <footer>
+            <form class="new-item-form">
+                <div class="field">
+                    <label>Type:</label>
+                    <select id="type">
+                        <option value="invoice">Invoices</option>
+                        <option value="payment">Payment</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>To / From:</label>
+                    <input type="text" id="tofrom">
+                </div>
+                <div class="field">
+                    <label>Details:</label>
+                    <input type="text" id="details">
+                </div>
+                <div class="field">
+                    <label for="">Amount ($)</label>
+                    <input type="number" id="ampount">
+                </div>
+                <button>Add</button>
+            </form>
+        </footer>
+    </body>
+</html>
