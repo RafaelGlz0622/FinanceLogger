@@ -56,35 +56,59 @@ const list = new ListTemplate(ul);
 
 _form.addEventListener('submit', (e: Event) => {
     e.preventDefault();
+
+    let values: [string, string, number];
+    values = [_tofromInput.value,_detailsInput.value,_amountInput.valueAsNumber];
+
     let _doc: HasFormatter;
     if (_amountTypeInput.value === 'invoice'){
-        _doc = new Invoice(_tofromInput.value,_detailsInput.value,_amountInput.valueAsNumber);
+        _doc = new Invoice(...values);
     }else{            
-        _doc = new Payment(_tofromInput.value,_detailsInput.value,_amountInput.valueAsNumber);
+        _doc = new Payment(...values);
     }
 
     list.render(_doc, _amountTypeInput.value, 'end');
    
 });
 
+// tuples
 
-const addUID = <T extends {name: string}>(obj: T) => {
-    let uid = Math.floor(Math.random() * 300);
-    return {...obj, uid };
-}
+let arr = ['ryu', 25, true];
+arr[0] = false;
+arr[1]  = 'yoshi';
+arr = [30, false, 'yoshi'];
 
-let docOne = addUID({name: 'yoshi', age: 865});
+let tup: [string, number, boolean] = ['ryu', 25, true];
+tup[0] = 'ken';
+tup[1] = 20;
+let student: [string, number];
+student = ['chunli', 2334];
 
-interface Resource<T> {
-    uid: number,
-    resourceName: string,
-    data: T 
-}
 
-const docThree: Resource<object> = {
-    uid: 1251,
-    resourceName: 'name',
-    data: {name: 'hola'}
-}
 
-console.log(docOne);
+
+
+
+
+
+// Generics
+// const addUID = <T extends {name: string}>(obj: T) => {
+//     let uid = Math.floor(Math.random() * 300);
+//     return {...obj, uid };
+// }
+
+// let docOne = addUID({name: 'yoshi', age: 865});
+
+// interface Resource<T> {
+//     uid: number,
+//     resourceName: string,
+//     data: T 
+// }
+
+// const docThree: Resource<object> = {
+//     uid: 1251,
+//     resourceName: 'name',
+//     data: {name: 'hola'}
+// }
+
+// console.log(docOne);
